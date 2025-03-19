@@ -1,0 +1,11 @@
+#p1{
+    border-color: red;
+    border-style: dotted;
+    border-width: 5px;
+}
+#p2{
+    border-radius: 15px;
+    border: purple double 10px;
+    display: inline;
+    
+}

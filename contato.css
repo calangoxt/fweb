@@ -1,44 +1,67 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
-#p1 {
-    font-family: Comic sans MS;
-    border-bottom: 3px solid #535355;
-    text-align: center;
-    align-items: center;
-    border-bottom: 4px solid #535355;
-    border-top: 4px solid #535355;
-    border-left:  4px solid #535355;
-    border-right:  4px solid #535355;
-background-color: #535355;
-color: aliceblue;
 
+body {
+    background-color: #9494fb;
 }
-body{
-    background-color:#9494fb;
-}
-#imgBody {
-    margin: 10px;
-    width: 200px;
-    height: 200px;
-    align-items: center;
-    border-bottom: 10px solid #535355;
-    border-top: 10px solid #535355;
-    border-left:  10px solid #535355;
-    border-right:  10px solid #535355;
-}
-#center{
+
+#center {
     text-align: center;
 }
-#conteinerP{
+
+#p1 {
+    display: flex;
+    font-family: Comic sans MS;
+    font-size: x-large;  /* Aproximadamente x-large */
+    text-align: center;
+    justify-content: center;
+    color: aliceblue;
+}
+
+#imgBody {
+    margin: 4vh;
+    width: 15vw;  /* Aproximadamente 200px em uma tela de 1000px */
+    height: 15vw;  /* Mantendo a proporção de 200px */
+    border-radius: 1.5vw;  /* Aproximadamente 15px */
+    border: 1vw solid #535355;  /* Aproximadamente 10px */
+}
+
+#conteiner {
+    margin:2vh 17vh ;
+    
     display: flex;
     justify-content: center;
+    border: 2px solid gray;  /* Aproximadamente 1px */
+    border-radius: 25px;
+    padding: 2vh;
 }
-#conteinerS{
+
+.conteinerS {
+    border-radius: 0.5vw;  /* Aproximadamente 5px */
     text-align: center;
-    background-color: aliceblue;
-    width: 200px;
-    height: 300px;
-    margin: 10px;
+    background-color: #535355;
+    width: 24vw;  /* Aproximadamente 200px */
+    height: 37vh;  /* Aproximadamente 290px em uma tela de 1000px */
+    margin: 1vw;  /* Aproximadamente 15px */
+}
+.conteinerS:hover{
+background-color: aliceblue;
+
+}
+
+#title1 {
+    margin: 1.3vw;  /* Aproximadamente 13px */
+    font-family: Comic sans MS;
+    color: aliceblue;
+    text-align: center;
+    font-size: 1.5  vw;  /* Aproximadamente 17px */
+}
+
+#text {
+    color: aliceblue;
+    font-family: Comic sans MS;
+    margin: 0.5vw;  /* Aproximadamente 5px */
+    font-size: 1vw;  /* Aproximadamente 13px */
 }
