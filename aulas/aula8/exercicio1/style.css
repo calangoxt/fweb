@@ -1,5 +1,12 @@
+body{
+    background-color: gray;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
 #flex{
-    display: flex;
+    display:inline-flex;
 }
 .Personagem{
 

@@ -3,12 +3,16 @@ body, html {
     width: 100%;
     margin: 0;
     padding: 0;
-    background-color: rgb(254, 213, 219); 
+    background-color: #B57EDC; 
     font-family: cursive;  
     color: rgb(255, 255, 255); 
     font-size: 2rem;
+text-align: center;
 }
-
+p{
+    font-size: 1.5em;
+    text-shadow:5px 5px 5px #000000;
+}
 main {
     height: 75%;
     width: 80%;
@@ -16,6 +20,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 10px 10px 10px #000000;
 }
 
 #divP {
@@ -27,33 +32,42 @@ main {
     background-color: rgb(255, 169, 184);
     border-radius: 15px;
     position: relative;
+    border:2px solid #FFFFFF;
 }
 
 #img1, #img2, #img3, #img4 {
-    width: 180px;
-    height: 150px;
+    width: 20%;
+    height: 20%;
     position: absolute;
     border-radius: 15px;
 
 }
 
 #img1 {
-    left: 35px;
-    top: 30px;
+    left: 4%;
+    top: 6%;
 }
 
 #img2 {
-    left: 800px;
-    top: 30px;
+    left: 77%;
+    top: 6%;
 }
 
 #img3 {
-    left: 800px;
-    top: 265px;
+    left: 77%;
+    top: 77%;
 }
 
 #img4 {
-    left: 35px;
-    top: 265px;
+    left: 4%;
+    top: 77%;
+}
+ul li{
+    font-size:small;
+}
+h1{
+    font-size: 1.5em;
+    text-shadow:5px 5px 5px #000000;
+    opacity: 0.8;
 }
 
