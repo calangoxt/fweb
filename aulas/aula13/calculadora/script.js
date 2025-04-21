@@ -1,25 +1,36 @@
 let input = document.querySelector("#inputText")
-let textValue =""
-function addNunber(number){
-    textValue+=number
+let textValue = ""
+
+function addNumber(number) {
+    textValue += number
     updateText()
 }
-function addOperador(operator){
-    textValue+=operator
+
+function addOperador(operator) {
+    textValue += operator
     updateText()
 }
-function addDecimal(){
-    textValue+="."
+
+function addDecimal() {
+    textValue += "."
     updateText()
 }
-function limparText(){
+
+function limparText() {
     textValue = ""
     updateText()
 }
-function updateText(){
-input.textContent=textValue
+
+function updateText() {
+    input.value = textValue  // Aqui está a correção
 }
-function calcular(){
-    textValue=eval(textValue)
-    updateText()
+
+function calcular() {
+    try {
+        textValue = eval(textValue)
+        updateText()
+    } catch (error) {
+        textValue = "Erro"
+        updateText()
+    }
 }

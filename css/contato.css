@@ -1,62 +1,108 @@
 * {
-    font-family: sans-serif;
+    font-family: 'Playfair Display';
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-
-html,body {
+html, body {
     width: 100%;
     height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-
-header{
-    width: 100%;
-    height: 10%;
-    background-color: #faf0e6;
-    font-weight: bold;
-}
-
-.menu-opcoes {
-    margin-top: 2%;
-        
-}
-#title{
-    margin-left: 2%;
-    float: left;
-    color: #4b4b4b;
-    font-family: Comic sans MS;
-    font-size:small;
-    display: flex;
-    justify-content: start;
-}
-#divNav{
-    display:flex;
-    justify-content: space-around;
-}
-
-
-
-a:link {
-    color: #4b4b4b;
-    text-decoration: none;
-    padding: 10px;
-    font-family: Comic sans MS;
-}
-
-a:visited {
-    color: #4b4b4b;
 }
 
 header {
     width: 100%;
-    height: 30%;
-    background-color: #faf0e6;
-    text-align: center;
+    height: 10vh;
+    background-color: #ffffff;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 2%;
+    border-bottom:2px solid #f08e80;
+}
+
+#title {
+    color: #f08e80;
+    font-size:xx-small;
+}
+
+.menu-opcoes {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 30px;
+    cursor: pointer;
+
+}
+
+.menu-opcoes a {
+    text-decoration: none;
+    color: #f08e80;
     font-weight: bold;
+}
+main {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    background-color:#ffffff;
+    border-bottom:2px solid #f08e80;
+}
+section {
+    width: 50%;
+    height: 90%;
+    border-radius: 10px;
+    text-align: center;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Isso empurra o conteúdo para o topo e o final */
+    padding: 20px;
+}
+section p {
+    font-size: 1.1em;
+    color: #666666; /* cinza suave */
+    font-weight: 300; /* peso leve */
+    line-height: 1.6;
+    font-family: 'Playfair Display', serif;
+    padding: 10px 20px;
+}
 
-
+#sectionIMG {
+    background-color: #fdf0e6;
+    position: relative; /* necessário para posicionar a imagem dentro */
+}
+section img {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 90%;
+    width: auto;
+    z-index: 2; /* garante que fique por cima */
+}
+#sectionIMG div {
+    width: 98%;
+    height: 32%;
+    background-color: #aaaadd;
+    border-radius: 100px;
+    margin: 5px auto;
+    z-index: 1;
+    position: relative;
+}
+#nomeGrande{
+    font-size: 550%;
+	color: #f08e80;
+}
+footer{
+    width: 100%;
+    height: 15%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center; 
+}
+.afooter{
+    cursor: pointer;
+align-items: center;
 }
