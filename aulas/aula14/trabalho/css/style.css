@@ -1,4 +1,12 @@
-body,html{
-    margin: 0;
-    padding: 0;
-}
+html, body {
+    height: auto;
+    min-height: 100%;
+    overflow-x: hidden;
+margin: 0;
+padding: 0;
+background-color: #DCE2E9;
+  }
+  
+
+
+  
