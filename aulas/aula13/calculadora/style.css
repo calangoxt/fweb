@@ -1,3 +1,6 @@
+*{
+    font-weight:bolder ;
+}
 body, html {
     margin: 0;
     padding: 0;
