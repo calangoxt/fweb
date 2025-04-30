@@ -50,19 +50,17 @@ main {
 }
 section {
     width: 50%;
-    height: 90%;
-    border-radius: 10px;
+    height: 100%;
     text-align: center;
-    margin: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Isso empurra o conteúdo para o topo e o final */
+    justify-content: space-between;
     padding: 20px;
 }
 section p {
     font-size: 1.1em;
-    color: #666666; /* cinza suave */
-    font-weight: 300; /* peso leve */
+    color: #666666;
+    font-weight: 300;
     line-height: 1.6;
     font-family: 'Playfair Display', serif;
     padding: 10px 20px;
@@ -70,7 +68,7 @@ section p {
 
 #sectionIMG {
     background-color: #fdf0e6;
-    position: relative; /* necessário para posicionar a imagem dentro */
+    position: relative; 
 }
 section img {
     position: absolute;
@@ -79,14 +77,14 @@ section img {
     transform: translateX(-50%);
     height: 90%;
     width: auto;
-    z-index: 2; /* garante que fique por cima */
+    z-index: 2;
 }
 #sectionIMG div {
     width: 98%;
-    height: 32%;
+    height: 34%;
     background-color: #aaaadd;
     border-radius: 100px;
-    margin: 5px auto;
+    margin: 2px auto;
     z-index: 1;
     position: relative;
 }
