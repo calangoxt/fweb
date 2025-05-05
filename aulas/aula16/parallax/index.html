@@ -1,18 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parallax Lado a Lado</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      overflow: hidden;
+      background-color: #000;
+    }
+
+    #port {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px; /* espaço entre imagens */
+    }
+
+    .parallax-layer {
+      width: 200px;
+      height: auto;
+      transition: transform 0.1s ease-out;
+      pointer-events: none;
+    }
+  </style>
 </head>
 <body>
-    <div id="port">
-        <img class="parallax-layer" src="parallax1.png" alt="" />
-        <img class="parallax-layer" src="parallax2.png" alt="" />
-        <img class="parallax-layer" src="parallax3.png" alt="" />
-        ...
-      </div>
-    <script src="../jquery/js/jQuery.min.js"></script>
-    <script src="../jquery/js/jquery.parallax.js"></script>
+  <div id="port">
+    <img class="parallax-layer" src="../../img/arrasca.png" alt="Arrasca" />
+    <img class="parallax-layer" src="../../img/elenco.jpg" alt="Elenco" />
+    <img class="parallax-layer" src="../../img/bh2.jpg" alt="BH" />
+  </div>
+
+  <script src="../jquery/js/jQuery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#port').on('mousemove', function (e) {
+        const offsetX = e.pageX / $(this).width() - 0.5;
+        const offsetY = e.pageY / $(this).height() - 0.5;
+
+        $('.parallax-layer').each(function (index) {
+          const movement = (index + 1) * 10;
+          const translateX = offsetX * movement;
+          const translateY = offsetY * movement;
+
+          $(this).css('transform', 'translate(' + translateX + 'px, ' + translateY + 'px)');
+        });
+      });
+    });
+  </script>
 </body>
 </html>
+
