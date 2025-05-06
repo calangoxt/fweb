@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Parallax Lado a Lado</title>
+  <title>Parallax Vertical</title>
   <style>
     * {
       margin: 0;
@@ -13,8 +13,8 @@
 
     body, html {
       height: 100%;
+      background-color: #111;
       overflow: hidden;
-      background-color: #000;
     }
 
     #port {
@@ -23,39 +23,48 @@
       height: 100vh;
       overflow: hidden;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 40px; /* espaço entre imagens */
+      gap: 60px; /* Espaço entre as imagens */
     }
 
     .parallax-layer {
-      width: 200px;
+      width: 250px;
       height: auto;
       transition: transform 0.1s ease-out;
       pointer-events: none;
+      will-change: transform;
     }
+
+    .parallax-layer:nth-child(1) { z-index: 1; opacity: 0.5; }
+    .parallax-layer:nth-child(2) { z-index: 2; opacity: 0.8; }
+    .parallax-layer:nth-child(3) { z-index: 3; opacity: 1; }
   </style>
 </head>
 <body>
   <div id="port">
-    <img class="parallax-layer" src="../../img/arrasca.png" alt="Arrasca" />
-    <img class="parallax-layer" src="../../img/elenco.jpg" alt="Elenco" />
-    <img class="parallax-layer" src="../../img/bh2.jpg" alt="BH" />
+    <img class="parallax-layer" src="../../img/arrasca.png" alt="Camada 1" />
+    <img class="parallax-layer" src="../../img/elenco.jpg" alt="Camada 2" />
+    <img class="parallax-layer" src="../../img/bh2.jpg" alt="Camada 3" />
   </div>
 
   <script src="../jquery/js/jQuery.min.js"></script>
   <script>
     $(document).ready(function () {
-      $('#port').on('mousemove', function (e) {
-        const offsetX = e.pageX / $(this).width() - 0.5;
-        const offsetY = e.pageY / $(this).height() - 0.5;
+      const $layers = $('.parallax-layer');
+      const $port = $('#port');
 
-        $('.parallax-layer').each(function (index) {
-          const movement = (index + 1) * 10;
-          const translateX = offsetX * movement;
-          const translateY = offsetY * movement;
+      $port.on('mousemove', function (e) {
+        const offsetX = (e.pageX / $port.width()) - 0.5;
+        const offsetY = (e.pageY / $port.height()) - 0.5;
 
-          $(this).css('transform', 'translate(' + translateX + 'px, ' + translateY + 'px)');
+        $layers.each(function (index) {
+          const depth = (index + 1) * 10;
+          const translateX = offsetX * depth;
+          const translateY = offsetY * depth;
+
+          $(this).css('transform', `translate(${translateX}px, ${translateY}px)`);
         });
       });
     });

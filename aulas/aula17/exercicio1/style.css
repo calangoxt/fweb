@@ -1,0 +1,19 @@
+body{
+    text-align: center;
+    background-color: coral;
+    padding: 20px;
+}
+h1{
+    color: blueviolet;
+}
+ul{
+    list-style-type: none;
+    padding: 0;
+}
+li{
+    background-color: blanchedalmond;
+    margin:  10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0 , 0.1);
+}

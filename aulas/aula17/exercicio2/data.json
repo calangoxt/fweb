@@ -1,0 +1,39 @@
+{
+"pessoas" : [
+    {
+        "nome": "João",
+        "idade": 30,
+        "local":{
+            "cidade": "São Paulo",
+            "estado": "SP",
+            "pais":"brasil"
+        }
+    },
+    {
+        "nome": "Maria", 
+        "idade": 25,
+        "local":{
+            "cidade": "Rio de Janeiro",
+            "estado": "RJ",
+            "pais":"brasil"
+            }
+    },
+    {
+        "nome": "Pedro",
+        "idade": 40,
+        "local":{
+            "cidade": "Belo Horizonte",
+            "estado": "MG",
+            "pais":"brasil"
+            }
+    },
+    {
+        "nome": "Ana",
+        "idade": 35,
+        "local":{
+            "cidade": "Curitiba",
+            "estado": "PR",
+            "pais":"brasil"
+            }
+    }]
+}
