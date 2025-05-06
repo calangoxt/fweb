@@ -1,0 +1,30 @@
+{
+    "pessoas":[{
+        "nome": "João",
+        "idade": 30,
+        "cpf":71938272821,
+        "telefone":7382732983727
+    },
+    {
+        "nome": "Maria",
+        "idade": 25,
+        "cpf": 12345266901,
+        "telefone": 9876543210
+    },{
+        "nome": "Pedro",
+        "idade": 40,
+        "cpf": 9876543210,
+        "telefone": 12345678901
+    },{
+        "nome": "João", 
+        "idade": 35,
+        "cpf": 12348998901,
+        "telefone": 8296543210
+    },{
+        "nome": "Maria",
+        "idade": 30,
+        "cpf": 9876543210,
+        "telefone": 12347828901
+    }
+    ]
+}
