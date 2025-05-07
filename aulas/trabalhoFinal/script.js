@@ -85,11 +85,10 @@ function corDoTipo(tipo) {
 
 
 function telaPrincipal(pokeData) {
-    // Reproduz o som do Pokémon
-    const audio = new Audio(`https://play.pokemonshowdown.com/audio/cries/${pokeData.name.toLowerCase()}.mp3`);
+
+    const audio = new Audio(pokeData.cries.latest);
     audio.play();
-  
-    // Atualiza o conteúdo da tela
+
     const pokemonList = document.getElementById("tela");
     pokemonList.innerHTML = `
       <h2>${pokeData.name.toUpperCase()}</h2>

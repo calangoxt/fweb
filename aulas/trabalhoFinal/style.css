@@ -1,22 +1,26 @@
+*{
+      font-family: 'Press Start 2P', cursive;
 
+}
 body, html {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
     font-family: sans-serif;
-    background-color: red;
+    background-color: 	#D12C2C;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     box-sizing: border-box;
+
   }
   
 
   #tela {
-    background-color: #fff;
-    width: 1200px;
+    background-color: 	#4F4F4F;
+    width: 1000px;
 height: 200px;
     border-radius: 1000px 1000px 15px 15px;
     margin: 20px 0;
@@ -50,6 +54,7 @@ height: 200px;
     width: 100%;    
     max-width: 150px;    
     box-sizing: border-box;
+    font-size:x-small
   }
   
   .card:hover {
@@ -72,12 +77,14 @@ height: 200px;
     cursor: pointer;
     border-radius: 1000px  15px 15px 1000px;
     border: 2px solid black;
+ background-color: 	#FFD700;
   }  .p1 {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     border-radius:  15px 1000px 1000px 15px ;
     border: 2px solid black;
+    background-color: 		#FFD700;
   }
   .tela{
     display: flex;
@@ -94,19 +101,23 @@ height: 200px;
   }
 input{
     text-align: center;
-    width: 1000px;
+    width: 825px;
     height: 200px;
     border-radius: 15px 15px 15px 1000px;
     font-size:300%;
     border: 2px solid black;
+    background-color: 	#4F4F4F;
+font-size:xx-large
 }
+
 #button{
-    width: 230px;
-    height: 203px;
+    width: 200px;
+    height: 205px;
     border-radius: 15px 15px 1000px 15px;
-    background-color: #fff;
+    background-color: 		#4FC3F7;
     font-size:300%;
     text-align: left;
     border: 2px solid black;
+    font-size:xx-large
 
 }
