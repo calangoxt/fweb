@@ -1,121 +1,123 @@
 *{
-    font-family: 'Press Start 2P', cursive; /* Define a fonte padrão estilo retrô */
-}
+      font-family: 'Press Start 2P', cursive;
 
-body{
-    background-image: url(./img/download\ \(2\).jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 }
-
-/* Centraliza o conteúdo principal na tela */
-main{
+body, html {
+    margin: 0;
+    padding: 0;
     width: 100%;
     height: 100%;
+    font-family: sans-serif;
+    background-color: 	#D12C2C;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+
+  }
+  
+
+  #tela {
+    background-color: 	#4F4F4F;
+    width: 1000px;
+height: 200px;
+    border-radius: 1000px 1000px 15px 15px;
+    margin: 20px 0;
+    padding: 20px;
+    box-shadow: 0 0 10px #00000033;
     display: flex;
     justify-content: center;
-}
+    align-items: center;
+    border: 2px solid black;
+  }
+  
 
-/* Define o tamanho da imagem da Pokédex */
-figure{
-    width: 400px;
-    height: 600px;
-}
-
-/* Estilo do input de busca do Pokémon */
-#inputPK{
-    width: 60%;
-    border-radius: 15px;
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    justify-items: center;
+  }
+ 
+  .card {
+    margin-top: 30px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ff481b;
     text-align: center;
+    transition: transform 0.2s;
+    width: 100%;    
+    max-width: 150px;    
+    box-sizing: border-box;
+    font-size:x-small
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+
+  .card img {
+    width: 80px;
+  }
+  
+
+  .pagination {
+    margin: 20px;
+  }
+  
+  .p2 {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 1000px  15px 15px 1000px;
+    border: 2px solid black;
+ background-color: 	#FFD700;
+  }  .p1 {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius:  15px 1000px 1000px 15px ;
+    border: 2px solid black;
+    background-color: 		#FFD700;
+  }
+  .tela{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 1.2;
+  }
+  .tela img{
+
+    width: 100px;
+     height: 100px;
+      object-fit: contain;
+  }
+input{
+    text-align: center;
+    width: 825px;
+    height: 200px;
+    border-radius: 15px 15px 15px 1000px;
+    font-size:300%;
+    border: 2px solid black;
+    background-color: 	#4F4F4F;
+font-size:xx-large
 }
 
-/* Container principal onde os elementos são posicionados sobre a imagem */
-#container{
-    position:relative;
+#button{
+    width: 200px;
+    height: 205px;
+    border-radius: 15px 15px 1000px 15px;
+    background-color: 		#4FC3F7;
+    font-size:300%;
+    text-align: left;
+    border: 2px solid black;
+    font-size:xx-large
+
 }
-
-/* Imagem do Pokémon posicionada dentro da Pokédex */
-#imgPK{
-    position: absolute;
-    top: 30%;
-    left: 30%;
-}
-
-/* Formulário de busca do Pokémon */
-#formPK{
-    position: absolute;
-    top: 50%;
-    left: 32%;
-}
-
-/* Nome do Pokémon */
-#nome{
-    position: relative;
-    bottom:26%;
-    left: 25%;
-}
-
-/* Primeira linha de informações (tipo e habilidade) */
-#info1{
-    position: relative;
-    bottom: 25%;
-    left: 25%;
-}
-
-/* Segunda linha de informações (peso e altura) */
-#info2{
-    position: relative;
-    bottom: 25%;
-    left: 25%;
-}
-
-/* Botões de navegação ("Voltar" e "Próximo") */
-#botoes{
-    position: relative;
-    bottom: 17%;
-    left: 35%;
-}
-
-/* Estilo dos botões em geral */
-button{
-    border-radius: 15px;
-    background-color: #FFD700;
-}
-
-/* Estilos para telas pequenas (responsivo) */
-@media (max-width: 500px) {
-    #container {
-        width: 300px;
-    }
-
-    #imgPK {
-        top: 90px;
-        left: 70px;
-        width: 100px;
-        height: 100px;
-    }
-
-    #fotoPK {
-        width: 100%;
-        height: 100%;
-    }
-
-    #inputPK, button {
-        font-size: 8px;
-    }
-
-    #nome, #info1, #info2, #botoes {
-        font-size: 8px;
-    }
-
-    #formPK {
-        top: 220px;
-    }
-
-    #nome { top: 270px; }
-    #info1 { top: 310px; }
-    #info2 { top: 350px; }
-    #botoes { top: 410px; }
-}
-

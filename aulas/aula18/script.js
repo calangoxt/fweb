@@ -1,94 +1,101 @@
-//seletor de id
-let imgPK = document.querySelector("#fotoPK");
-let formPK = document.querySelector("#formPK");
-let inputPK = document.querySelector("#inputPK");
-let idPK = document.querySelector("#idPK");
-let nomePK = document.querySelector("#nomePK");
-let tipo1 = document.querySelector("#tipo1PK");
-let tipo2 = document.querySelector("#tipo2PK");
-let habiPK = document.querySelector("#habiPK");
-let pesoPK = document.querySelector("#pesoPK");
-let alturaPK = document.querySelector("#alturaPK");
-let btnVoltar = document.querySelector("#btnVoltar");
-let btnProximo = document.querySelector("#btnProximo");
-// primeiro pokemon a aparecer
-let numeroPokedex = 1 ;
+async function getPokemon() {
+    const nameInput = document.getElementById("pokemonName").value.toLowerCase();
+    const url = `https://pokeapi.co/api/v2/pokemon/${nameInput}`;
 
-//faz conecao coma api
-const fetchPokemon = async (pokemon) => {
-  const APIresponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
-  const data = await APIresponse.json();
-  return data
+    try {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error("Pokémon não encontrado");
+
+        const data = await res.json();
+
+        telaPrincipal(data)
+    } catch (error) {
+        document.getElementById("pokemonInfo").innerHTML = `<p>${error.message}</p>`;
+    }
 }
-//procura o pokemon e od dados dele
-const showPokemon = async (pokemon) => {
-  const dataPokemon = await fetchPokemon(pokemon);
-  const audio = new Audio(dataPokemon.cries.latest);
-  audio.play();
-shiny(dataPokemon)
-
-  idPK.innerHTML = `<br>ID:${dataPokemon.id}`;
-  nomePK.innerHTML = dataPokemon.name;
-  tipo1.innerHTML = ` type:${dataPokemon.types[0].type.name}`;
-  if (
-    dataPokemon.types[1] != undefined
-  ) {
-    tipo2.innerHTML = dataPokemon.types[1].type.name;
-  }
-  else {
-    tipo2.innerHTML = ""
-  }
-  habiPK.innerHTML = dataPokemon.abilities[0].ability.name;
-  pesoPK.innerHTML = `Peso:${dataPokemon.weight / 10}kg`;
-  alturaPK.innerHTML = `Altura:${dataPokemon.height / 10}m`;
-}
-//chama a funcao de pegar pokemon 
-formPK.addEventListener("submit", (event) => {
-  event.preventDefault();
-  showPokemon(inputPK.value.toLowerCase());
-})
-//volta um pokemon
-btnVoltar.addEventListener("click", (e) => {
-  if (numeroPokedex > 1) {
-    numeroPokedex--;
-  }
-  showPokemon(numeroPokedex);
-})
-//passa para o proximo pokemon
-btnProximo.addEventListener("click", (e) => {
-  if (numeroPokedex < 1025) {
-    numeroPokedex++;
-  }
-  showPokemon(numeroPokedex);
-})
-//da uma chance de 10% do pokemon vir shiny
-function shiny(dataPokemon){
-  let shiny= Math.floor(Math.random() * 10)
-  if(shiny==0){
-    imgPK.src = dataPokemon.sprites.front_shiny;
+const container = document.getElementById('character-grid');
 
 
-  }else{
-    imgPK.src = dataPokemon.sprites.front_default;
-  }
-}
+let offset = 0;
+const limit = 25;
 
-let musicaFundo = true;
-//para e musica
-function musicSistema() {
-    const music = document.getElementById('background-music');
-    const musicIcon = document.getElementById('music-icon');
+async function loadPokemons() {
+    const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
+    const res = await fetch(url);
+    const data = await res.json();
 
+    pokemonList.innerHTML = "";
+    for (const pokemon of data.results) {
+        const res = await fetch(pokemon.url);
+        const pokeData = await res.json();
 
-    if (musicaFundo) {
-        music.pause();
-        musicaFundo = false;
-        musicIcon.src = './img/sem-som.png';
-    } else {
-        music.play();
-        musicaFundo = true;
-        musicIcon.src = 'img/alto-falante.png'; 
+        const div = document.createElement("button");
+        div.className = "card";
+        const tipo = pokeData.types[0].type.name;
+        const cor = corDoTipo(tipo);
+        div.style.backgroundColor = cor;
+
+        div.innerHTML = `
+<h4>nº ${pokeData.id}</h4>
+    <img src="${pokeData.sprites.front_default}" alt="${pokeData.name}" />
+    <h3>${pokeData.name.toUpperCase()}</h3>
+  `;
+
+        div.onclick = function () {
+            telaPrincipal(pokeData);
+        };
+
+        pokemonList.appendChild(div);
     }
 }
 
-showPokemon(numeroPokedex);
+function nextPage() {
+    offset += limit;
+    loadPokemons();
+}
+
+function prevPage() {
+    if (offset >= limit) {
+        offset -= limit;
+        loadPokemons();
+    }
+}
+
+function corDoTipo(tipo) {
+    if (tipo === "normal") return "#A8A77A";
+    if (tipo === "fire") return "#EE8130";
+    if (tipo === "water") return "#6390F0";
+    if (tipo === "electric") return "#F7D02C";
+    if (tipo === "grass") return "#7AC74C";
+    if (tipo === "ice") return "#96D9D6";
+    if (tipo === "fighting") return "#C22E28";
+    if (tipo === "poison") return "#A33EA1";
+    if (tipo === "ground") return "#E2BF65";
+    if (tipo === "flying") return "#A98FF3";
+    if (tipo === "psychic") return "#F95587";
+    if (tipo === "bug") return "#A6B91A";
+    if (tipo === "rock") return "#B6A136";
+    if (tipo === "ghost") return "#735797";
+    if (tipo === "dragon") return "#6F35FC";
+    if (tipo === "dark") return "#705746";
+    if (tipo === "steel") return "#B7B7CE";
+    if (tipo === "fairy") return "#D685AD";
+    return "#777";
+}
+
+
+function telaPrincipal(pokeData) {
+
+    const audio = new Audio(pokeData.cries.latest);
+    audio.play();
+
+    const pokemonList = document.getElementById("tela");
+    pokemonList.innerHTML = `
+      <h2>${pokeData.name.toUpperCase()}</h2>
+      <img src="${pokeData.sprites.front_default}" alt="${pokeData.name}" />
+      <h4 style="margin: 0;">ID: ${pokeData.id}</h4>
+      <p><strong>Tipo:</strong> ${pokeData.types.map(t => t.type.name).join(", ")}</p>
+      <p><strong>Altura:</strong> ${(pokeData.height / 10).toFixed(1)} m</p>
+      <p><strong>Peso:</strong> ${(pokeData.weight / 10).toFixed(1)} kg</p>
+    `;
+  }loadPokemons(); 
